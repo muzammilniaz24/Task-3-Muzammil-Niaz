@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - GrandStay Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-building"></i> GrandStay Hotel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rooms.html"><i class="bi bi-door-open"></i> Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="guests.html"><i class="bi bi-people"></i> Guests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bookings.html"><i class="bi bi-calendar-check"></i> Bookings</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="alertContainer" class="alert-container"></div>
+
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1600&q=80');">
+        <div class="container hero-content">
+            <h1><i class="bi bi-door-open"></i> Room Management</h1>
+            <p>Add, view, update, and delete hotel rooms</p>
+            <div class="breadcrumb-nav"><a href="index.html">Dashboard</a> / Rooms</div>
+        </div>
+    </section>
+
+    <main class="container pb-5">
+        <div class="content-card form-card mb-4 fade-in">
+            <h5 id="roomFormTitle" class="section-title"><i class="bi bi-plus-circle"></i> Add New Room</h5>
+            <form id="roomForm" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-3">
+                        <label for="room_number" class="form-label"><i class="bi bi-hash"></i> Room Number</label>
+                        <input type="text" class="form-control" id="room_number" required placeholder="e.g. 101">
+                        <div class="invalid-feedback" id="room_number_error">Room number is required (1-10 characters, alphanumeric).</div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <label for="room_type" class="form-label"><i class="bi bi-house"></i> Room Type</label>
+                        <select class="form-select" id="room_type" required>
+                            <option value="">Select Type</option>
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Suite">Suite</option>
+                        </select>
+                        <div class="invalid-feedback" id="room_type_error">Please select a room type.</div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <label for="price_per_night" class="form-label"><i class="bi bi-currency-dollar"></i> Price Per Night</label>
+                        <input type="number" class="form-control" id="price_per_night" required min="1" step="0.01" placeholder="0.00">
+                        <div class="invalid-feedback" id="price_per_night_error">Price must be greater than zero.</div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <label for="room_status" class="form-label"><i class="bi bi-check-circle"></i> Status</label>
+                        <select class="form-select" id="room_status" required>
+                            <option value="Available">Available</option>
+                            <option value="Occupied">Occupied</option>
+                        </select>
+                        <div class="invalid-feedback" id="room_status_error">Please select a status.</div>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary" id="roomSubmitBtn"><i class="bi bi-plus-lg"></i> Add Room</button>
+                        <button type="button" class="btn btn-secondary d-none" id="roomCancelBtn"><i class="bi bi-x-lg"></i> Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3 fade-in">
+            <h5 class="section-title mb-0"><i class="bi bi-grid"></i> Room Gallery</h5>
+            <div class="view-toggle btn-group">
+                <button class="btn btn-outline-primary active" id="viewCardsBtn" onclick="toggleRoomView('cards')"><i class="bi bi-grid-3x3-gap"></i> Cards</button>
+                <button class="btn btn-outline-primary" id="viewTableBtn" onclick="toggleRoomView('table')"><i class="bi bi-table"></i> Table</button>
+            </div>
+        </div>
+
+        <div id="roomsCardGrid" class="row g-4 mb-4 fade-in"></div>
+
+        <div class="content-card fade-in d-none" id="roomsTableSection">
+            <h5 class="section-title"><i class="bi bi-table"></i> All Rooms</h5>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>ID</th>
+                            <th>Room No.</th>
+                            <th>Type</th>
+                            <th>Price/Night</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roomsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom mb-0 border-0 pt-0">
+                &copy; 2026 GrandStay Hotel Management System
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

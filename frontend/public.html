@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandStay Hotel - Luxury Stay & Online Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="public.html">
+                <i class="bi bi-building"></i> GrandStay Hotel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#publicNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="publicNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rooms"><i class="bi bi-door-open"></i> Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#amenities"><i class="bi bi-stars"></i> Amenities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery"><i class="bi bi-images"></i> Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#booking"><i class="bi bi-calendar-check"></i> Book Now</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="bi bi-shield-lock"></i> Staff Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="alertContainer" class="alert-container"></div>
+
+    <section id="home" class="page-hero hero-dashboard" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80');">
+        <div class="container hero-content">
+            <span class="hero-tagline"><i class="bi bi-star-fill"></i> 5-Star Comfort & Hospitality</span>
+            <h1>Experience Luxury at GrandStay Hotel</h1>
+            <p>Elegant rooms, premium service, and seamless online booking — your perfect stay starts here.</p>
+            <div class="mt-4 d-flex flex-wrap gap-3">
+                <a href="#booking" class="btn btn-primary btn-lg"><i class="bi bi-calendar-check me-1"></i> Book Your Stay</a>
+                <a href="#rooms" class="btn btn-outline-light btn-lg"><i class="bi bi-door-open me-1"></i> View Rooms</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container pb-5">
+        <div class="row fade-in g-4" id="publicStats"></div>
+
+        <div class="content-card mt-4 fade-in">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="GrandStay Hotel Lobby" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="section-title border-0 pb-0 mb-3"><i class="bi bi-gem"></i> Welcome to GrandStay</h5>
+                    <p class="text-muted mb-3">GrandStay Hotel offers a refined blend of comfort and convenience in the heart of the city. Whether you are traveling for business or leisure, our thoughtfully designed rooms and attentive staff ensure a memorable experience.</p>
+                    <p class="text-muted mb-0">Browse live availability, compare room types, and confirm your reservation online in just a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rooms" class="content-card mt-4 fade-in">
+            <h5 class="section-title"><i class="bi bi-door-open"></i> Available Rooms</h5>
+            <p class="text-muted mb-4">Choose from our handpicked rooms — all prices shown are per night and updated in real time.</p>
+            <div id="publicRooms" class="row g-4"></div>
+        </div>
+
+        <div id="amenities" class="content-card mt-4 fade-in">
+            <h5 class="section-title"><i class="bi bi-stars"></i> Hotel Amenities</h5>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card available h-100 text-center">
+                        <div class="stat-icon mx-auto mb-3"><i class="bi bi-wifi"></i></div>
+                        <h6 class="fw-bold">Free Wi-Fi</h6>
+                        <p class="text-muted small mb-0">High-speed internet in every room and lobby.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card rooms h-100 text-center">
+                        <div class="stat-icon mx-auto mb-3"><i class="bi bi-cup-hot"></i></div>
+                        <h6 class="fw-bold">Fine Dining</h6>
+                        <p class="text-muted small mb-0">Breakfast buffet and international cuisine.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card bookings h-100 text-center">
+                        <div class="stat-icon mx-auto mb-3"><i class="bi bi-droplet"></i></div>
+                        <h6 class="fw-bold">Pool & Spa</h6>
+                        <p class="text-muted small mb-0">Relax with premium wellness facilities.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="stat-card occupied h-100 text-center">
+                        <div class="stat-icon mx-auto mb-3"><i class="bi bi-headset"></i></div>
+                        <h6 class="fw-bold">24/7 Support</h6>
+                        <p class="text-muted small mb-0">Front desk always ready to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery" class="content-card mt-4 fade-in">
+            <h5 class="section-title"><i class="bi bi-images"></i> Hotel Gallery</h5>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500&q=80" alt="Luxury Room">
+                    <div class="gallery-overlay"><span>Luxury Rooms</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Restaurant">
+                    <div class="gallery-overlay"><span>Fine Dining</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571008887538-b36bb695af39?w=500&q=80" alt="Pool">
+                    <div class="gallery-overlay"><span>Swimming Pool</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=500&q=80" alt="Spa">
+                    <div class="gallery-overlay"><span>Spa & Wellness</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="booking" class="content-card mt-4 fade-in">
+            <h5 class="section-title"><i class="bi bi-calendar-check"></i> Book Your Room</h5>
+            <p class="text-muted mb-4">Fill in your details below. Total price is calculated automatically based on your stay duration.</p>
+            <form id="publicBookingForm" class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="pub_name" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CNIC</label>
+                    <input type="text" class="form-control" id="pub_cnic" placeholder="12345-6789012-3" maxlength="15" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="pub_phone" placeholder="03001234567" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="pub_email" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" id="pub_address" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Room</label>
+                    <select class="form-select" id="pub_room" required>
+                        <option value="">Select room</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Check-in</label>
+                    <input type="date" class="form-control" id="pub_check_in" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Check-out</label>
+                    <input type="date" class="form-control" id="pub_check_out" required>
+                </div>
+                <div class="col-12">
+                    <div id="pricePreview" class="alert alert-light border mb-0 d-none"></div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-lg" id="pubSubmitBtn">
+                        <i class="bi bi-send"></i> Confirm Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="contact" class="content-card mt-4 fade-in">
+            <h5 class="section-title"><i class="bi bi-geo-alt"></i> Contact Us</h5>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <p class="mb-2"><i class="bi bi-geo-alt text-warning"></i> <strong>Address</strong></p>
+                    <p class="text-muted">123 Hotel Street, Main Boulevard, City</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-2"><i class="bi bi-telephone text-warning"></i> <strong>Phone</strong></p>
+                    <p class="text-muted">+92 300 1234567</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-2"><i class="bi bi-envelope text-warning"></i> <strong>Email</strong></p>
+                    <p class="text-muted">info@grandstay.com</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h6><i class="bi bi-building"></i> GrandStay Hotel</h6>
+                    <p>Luxury hospitality with modern comfort. Book online and enjoy a premium stay experience.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6>Explore</h6>
+                    <p><a href="#rooms">Our Rooms</a></p>
+                    <p><a href="#amenities">Amenities</a></p>
+                    <p><a href="#booking">Online Booking</a></p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6>Staff</h6>
+                    <p><a href="login.html">Admin Login</a></p>
+                    <p><i class="bi bi-clock"></i> Check-in: 2:00 PM &nbsp;|&nbsp; Check-out: 12:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 GrandStay Hotel. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/public.js"></script>
+</body>
+</html>
